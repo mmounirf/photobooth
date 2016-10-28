@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Alfahologram | Photobooth</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="./node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body ng-app="PhotoBoothApp" ng-controller="CameraController">
+    <md-button class="md-fab md-primary captureBtn" ng-click="capture($event)">
+      <md-icon>camera_alt</md-icon>
+    </md-button>
+    <div div flex layout="row" class="cameraWrapper">
+    </div>
+    <div style="visibility: hidden">
+    <div class="md-dialog-container" id="imageDialog">
+      <md-dialog aria-label="capturedImage">
+        <form name="sendImageForm" ng-model="sendImageForm">
+        <div class="sendSection">
+          <md-input-container class="emailInput">
+            <label id="label">Email</label>
+            <input ng-model="emailInput" type="email" required>
+          </md-input-container>
+          <md-button ng-click="sendEmail()" class="md-fab sendBtn">
+            <md-icon>send</md-icon>
+          </md-button>
+        </div>
+        </form>
+
+        <img ng-src={{image}} />
+      </md-dialog>
+    </div>
+  </div>
+  </body>
+
+  <script>require('./renderer.js')</script>
+  <script src="./node_modules/angular/angular.js"></script>
+  <script src="./node_modules/angular-aria/angular-aria.js"></script>
+  <script src="./node_modules/angular-animate/angular-animate.js"></script>
+  <script src="./node_modules/angular-material/angular-material.js"></script>
+  
+  <script src="./js/script.js"></script>
+</html>
